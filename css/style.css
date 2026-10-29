@@ -166,15 +166,15 @@ main{
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 100%;
     margin: 10px auto;
     padding: 0 16px;
 
     display: grid;
     grid:
-        "header header header" auto
-        "sidebar main nav" 1fr
-        "footer footer footer" auto;
+        "header header header"
+        "sidebar main nav"
+        "footer footer footer";
 
     grid-template-columns: 1fr 2fr 1fr;
     gap: 20px;
@@ -196,3 +196,31 @@ small a:hover{
     padding: 5px;
     margin-bottom: 15px;
 }
+
+
+.galleryContainer {
+    padding: 0 16px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 18px;
+}
+
+.gallery{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.gallery img{
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+}
+
+.galleryContainer main{
+    flex: 1;
+}
+
+
