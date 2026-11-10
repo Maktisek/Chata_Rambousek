@@ -1,5 +1,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&family=Inter:ital,opsz@0,14..32;1,14..32&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 
+:root {
+    --dark-beige: #B7B09E;
+    --mid-beige: #CFC6B1;
+    --bright-beige: #EBE2CC;
+    --nav-a-color: #292929;
+    --white: #fff4fb;
+    --a-hover: #fff8f8;
+    --text-color: black;
+    --table-color: black;
+    --shadow-color: rgba(183, 176, 158, 0.9);
+    --fig-caption: rgba(0, 0, 0, 0.7);
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -8,21 +21,21 @@
 
 body {
     font-family: 'Inter', 'sans-serif';
-    color: black;
+    color: var(--text-color);
     font-size: 0.9rem;
-    background-color: #EBE2CC;
+    background-color: var(--bright-beige);
 }
 
 p {
     line-height: 1.3;
 }
 
-html{
+html {
     scroll-behavior: smooth;
 }
 
 header {
-    background: linear-gradient(to bottom, #B7B09E, #CFC6B1);
+    background: linear-gradient(to bottom, var(--dark-beige), var(--mid-beige));
     padding: 10px;
     text-align: center;
     border-radius: 8px;
@@ -30,18 +43,18 @@ header {
 }
 
 nav {
-    background-color: #CFC6B1;
+    background-color: var(--mid-beige);
     text-align: center;
     border-radius: 5px;
-    border: 4px solid #B7B09E;
+    border: 4px solid var(--dark-beige);
     grid-area: nav;
     max-height: max-content;
     transition: all 0.3s ease;
 }
 
-.container nav:hover {
+.container nav:hover, .container nav:focus {
     transform: scale(1.01);
-    box-shadow: 12px 10px 50px rgba(183, 176, 158, 0.9);
+    box-shadow: 12px 10px 50px var(--shadow-color);
 }
 
 nav ul {
@@ -51,7 +64,7 @@ nav ul {
     padding: 10px;
 }
 
-.container nav ul{
+.container nav ul {
     flex-direction: column;
 }
 
@@ -61,7 +74,7 @@ nav ul li {
 
 
 footer {
-    background-color: #CFC6B1;
+    background-color: var(--mid-beige);
     border-radius: 8px;
     padding: 15px;
     grid-area: footer;
@@ -73,18 +86,18 @@ footer {
 
 a {
     text-decoration: none;
-    color: black;
+    color: var(--text-color);
     transition: all 0.3s ease;
 }
 
 nav a {
     display: inline-block;
     font-size: 1rem;
-    color: #292929;
+    color: var(--nav-a-color);
 }
 
-nav a:hover {
-    color: #fff4fb;
+nav a:hover, nav a:focus {
+    color: var(--white);
     transform: scale(1.1);
 }
 
@@ -100,21 +113,21 @@ figure {
 
 figcaption {
     padding-top: 10px;
-    color: rgba(0, 0, 0, 0.7);
+    color: var(--fig-caption);
 }
 
 .card {
     padding: 20px;
     border-radius: 8px;
-    border: 4px solid #B7B09E;
-    background-color: #CFC6B1;
+    border: 4px solid var(--dark-beige);
+    background-color: var(--mid-beige);
     transition: all 0.3s ease;
 }
 
 
-.card:hover {
+.card:hover, .card:focus {
     transform: scale(1.01);
-    box-shadow: 20px 12px 20px rgba(183, 176, 158, 0.9);
+    box-shadow: 20px 12px 20px var(--shadow-color);
 }
 
 .reception {
@@ -134,21 +147,21 @@ figcaption {
 
 .reception td, .reception th {
     padding: 5px;
-    border: 2px solid black;
+    border: 2px solid var(--table-color);
     text-align: left;
-    background-color: #B7B09E;
+    background-color: var(--dark-beige);
 }
 
 address {
     padding: 5px;
     border: 2px solid black;
     border-radius: 8px;
-    background-color: #B7B09E;
+    background-color: var(--dark-beige);
     margin: 0 auto;
 }
 
-address a:hover {
-    color: #fff8f8;
+address a:hover a:focus {
+    color: var(--a-hover);
 }
 
 .contact {
@@ -178,7 +191,7 @@ small a {
     display: inline-block;
 }
 
-small a:hover {
+small a:hover, small a:focus {
     color: aliceblue;
     transform: scale(1.02);
 }
@@ -217,8 +230,6 @@ small a:hover {
     flex: 1;
 }
 
-
-
 .container {
     max-width: 100%;
     margin: 10px auto;
@@ -232,6 +243,30 @@ small a:hover {
 
     grid-template-columns: 1fr 2fr 0.35fr;
     gap: 20px;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark-beige: #252523;
+        --mid-beige: #333029;
+        --bright-beige: #1c1a18;
+        --nav-a-color: #9c9999;
+        --white: #d6d3d3;
+        --a-hover: #232323;
+        --text-color: #b5b0b0;
+        --table-color: #393838;
+        --shadow-color: rgba(62, 60, 52, 0.2);
+        --fig-caption: rgba(221, 221, 221, 0.7);
+    }
+
+    img {
+        filter: brightness(0.65);
+        transition: filter 0.2s ease;
+    }
+
+    img:hover, img:focus {
+        filter: brightness(0.85);
+    }
 }
 
 /*Menší notebooky a tablety na šířku*/
@@ -252,14 +287,17 @@ small a:hover {
         "footer footer footer";
         grid-template-columns: 1fr 1fr 1fr;
     }
-    .container nav ul{
+
+    .container nav ul {
         flex-direction: row;
     }
-    .container nav:hover{
+
+    .container nav:hover, .container nav:focus {
         transform: scale(1.001);
         box-shadow: 12px 10px 50px rgba(183, 176, 158, 0.4);
     }
-    .card:hover{
+
+    .card:hover, .card:focus {
         transform: scale(1.001);
         box-shadow: 20px 12px 20px rgba(183, 176, 158, 0.5);
     }
@@ -276,9 +314,59 @@ small a:hover {
             "footer";
         grid-template-columns: 1fr;
     }
-    .container aside #tip{
+
+    .container aside #tip {
         display: none;
     }
 }
 
+@media print {
+    nav, #tip {
+        display: none !important;
+    }
 
+    :root {
+        --dark-beige: #4a4a4a;
+        --mid-beige: #ffffff;
+        --bright-beige: #ffffff;
+        --nav-a-color: #000000;
+        --white: #000000;
+        --a-hover: #000000;
+        --text-color: black;
+        --table-color: black;
+        --shadow-color: rgba(183, 176, 158, 0);
+        --fig-caption: rgba(0, 0, 0, 0.7);
+
+    }
+
+    .card {
+        border: 2px solid black;
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    figure{
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+
+    h1,h2,h3{
+        break-after: avoid;
+        page-break-inside: avoid;
+    }
+
+    .container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        display: block;;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.85em;
+        color: #555;
+    }
+
+    .gallery { grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+}
